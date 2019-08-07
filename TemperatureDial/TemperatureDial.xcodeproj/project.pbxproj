@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD58704E22FAEFDD005FEE29 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58704C22FAEFDD005FEE29 /* RectangleView.swift */; };
+		DD58704F22FAEFDD005FEE29 /* RectangleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD58704D22FAEFDD005FEE29 /* RectangleView.xib */; };
+		DDCB759D22FAEA09004BCEC3 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCB759C22FAEA09004BCEC3 /* CircularView.swift */; };
+		DDCB759F22FAEB65004BCEC3 /* CircularView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCB759E22FAEB65004BCEC3 /* CircularView.xib */; };
 		DDFD564422FABDE000859836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD564322FABDE000859836 /* AppDelegate.swift */; };
 		DDFD564622FABDE000859836 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD564522FABDE000859836 /* ViewController.swift */; };
 		DDFD564922FABDE000859836 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFD564722FABDE000859836 /* Main.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD58704C22FAEFDD005FEE29 /* RectangleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		DD58704D22FAEFDD005FEE29 /* RectangleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RectangleView.xib; sourceTree = "<group>"; };
+		DDCB759C22FAEA09004BCEC3 /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
+		DDCB759E22FAEB65004BCEC3 /* CircularView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CircularView.xib; sourceTree = "<group>"; };
 		DDFD564022FABDE000859836 /* TemperatureDial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemperatureDial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFD564322FABDE000859836 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDFD564522FABDE000859836 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +43,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD58704B22FAEFDD005FEE29 /* RectangleView */ = {
+			isa = PBXGroup;
+			children = (
+				DD58704C22FAEFDD005FEE29 /* RectangleView.swift */,
+				DD58704D22FAEFDD005FEE29 /* RectangleView.xib */,
+			);
+			path = RectangleView;
+			sourceTree = "<group>";
+		};
+		DDCB759B22FAE9F5004BCEC3 /* CircularView */ = {
+			isa = PBXGroup;
+			children = (
+				DDCB759C22FAEA09004BCEC3 /* CircularView.swift */,
+				DDCB759E22FAEB65004BCEC3 /* CircularView.xib */,
+			);
+			path = CircularView;
+			sourceTree = "<group>";
+		};
 		DDFD563722FABDDF00859836 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +80,8 @@
 		DDFD564222FABDE000859836 /* TemperatureDial */ = {
 			isa = PBXGroup;
 			children = (
+				DD58704B22FAEFDD005FEE29 /* RectangleView */,
+				DDCB759B22FAE9F5004BCEC3 /* CircularView */,
 				DDFD564322FABDE000859836 /* AppDelegate.swift */,
 				DDFD564522FABDE000859836 /* ViewController.swift */,
 				DDFD564722FABDE000859836 /* Main.storyboard */,
@@ -122,7 +150,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD58704F22FAEFDD005FEE29 /* RectangleView.xib in Resources */,
 				DDFD564E22FABDE300859836 /* LaunchScreen.storyboard in Resources */,
+				DDCB759F22FAEB65004BCEC3 /* CircularView.xib in Resources */,
 				DDFD564B22FABDE300859836 /* Assets.xcassets in Resources */,
 				DDFD564922FABDE000859836 /* Main.storyboard in Resources */,
 			);
@@ -135,7 +165,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDCB759D22FAEA09004BCEC3 /* CircularView.swift in Sources */,
 				DDFD564622FABDE000859836 /* ViewController.swift in Sources */,
+				DD58704E22FAEFDD005FEE29 /* RectangleView.swift in Sources */,
 				DDFD564422FABDE000859836 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UKB93VB8Y;
 				INFOPLIST_FILE = TemperatureDial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +336,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2UKB93VB8Y;
 				INFOPLIST_FILE = TemperatureDial/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
