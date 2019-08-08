@@ -29,7 +29,7 @@
                 <constraint firstItem="T5V-Ry-bu8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VoB-hX-rUL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="312.80000000000001" y="102.99850074962519"/>
+            <point key="canvasLocation" x="478" y="105"/>
         </view>
     </objects>
 </document>
