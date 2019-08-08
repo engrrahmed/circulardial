@@ -54,7 +54,6 @@ class CircularView: UIView {
     
     
     func addGuageLines(context : CGContext?) {
-        
         let diameter = min(bounds.width, bounds.height)
         let centerPoint = center
         context?.saveGState()
@@ -80,11 +79,36 @@ class CircularView: UIView {
             context?.rotate(by: angle)
             context?.translateBy(x: -centerPoint.x, y: -centerPoint.y)
             guageTickPath.fill()
-            
             context?.restoreGState()
             context?.saveGState()
+            drawText(name: "\(index)", centerPoint: centerPoint, radius:radius, angle:angle + pi / 2)
         }
         context?.restoreGState()
     }
-    
+ 
+    func drawText(name: String, centerPoint:CGPoint, radius:CGFloat, angle:CGFloat) {
+        let context = UIGraphicsGetCurrentContext()
+        context?.saveGState()
+        context?.translateBy(x: centerPoint.x, y: centerPoint.y)
+        context?.rotate(by: angle)
+        context?.translateBy(x: -centerPoint.x, y: -centerPoint.y)
+        
+        let font = UIFont(name: "HelveticaNeue-Bold", size: 16)!
+        let attributes = [NSAttributedString.Key.font: font,
+                          NSAttributedString.Key.foregroundColor: UIColor.black]
+        let textBounds = name.size(withAttributes: attributes)
+        let transform = context?.ctm
+        let radians = atan2(transform!.b, transform!.a)
+        if abs(radians) > pi / 2 && abs(radians) < 3 / 2 * pi {
+            context?.saveGState()
+            context?.rotate(by: pi)
+            
+            name.draw(at: CGPoint(x:-centerPoint.x - radius - textBounds.width - 5 , y:-centerPoint.y - 10), withAttributes:attributes)
+            context?.restoreGState()
+        } else {
+            name.draw(at: CGPoint(x:centerPoint.x + radius + 5, y:centerPoint.y - 15), withAttributes:attributes)
+        }
+        context?.restoreGState()
+    }
+
 }
