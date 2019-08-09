@@ -15,10 +15,37 @@ class CircularView: UIView {
     // MARK:- Class variable
     //start angle: where we need to start the reading scale
     //Stop angle: where we need to start the reading scale
-    @IBInspectable var startAngle           :CGFloat    = 0.0
-    @IBInspectable var stopAngle            :CGFloat    = 2.0 * pi
+    @IBInspectable var startAngle           :CGFloat    = 2 * pi / 3  {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    @IBInspectable var stopAngle            :CGFloat    = pi / 3  {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    private var startingAngle :CGFloat {
+        get {
+            return startAngle.truncatingRemainder(dividingBy: 2.0 * pi)
+        }
+    }
+    var anglePerIndex               :CGFloat {
+        get {
+            var diff = stopAngle - startAngle
+            if diff > 2 * pi {
+                diff = diff - 2 * pi
+            } else if diff <= 0 {
+                diff = diff + 2 * pi
+            }            
+            return diff / CGFloat(numberOfOuterLines - 1)
+        }
+    }
+    
+    var isClockwise                         :Bool = true
     //total number of the calibrition lines need to add in between start and stop angle
-    @IBInspectable var numberOfOuterLines   :Int        = 12
+    @IBInspectable var numberOfOuterLines   :Int        = 30
     // margin from the UIview bounds
     @IBInspectable var margin               :CGFloat    = 30.0
     //line width of the tick
@@ -27,7 +54,11 @@ class CircularView: UIView {
     @IBInspectable var markLength           :CGFloat    = 20.0
     
     // pointing to current value of the guage
-    var currentValueMarkIndex               :Int        = 10 //0
+    var currentValueMarkIndex               :Int        = 10 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     var baseValueMarkIndex                  :Int        {
         get {
             return numberOfOuterLines / 2
@@ -50,15 +81,16 @@ class CircularView: UIView {
         // Drawing code
         let context = UIGraphicsGetCurrentContext()
         //Added outer circle for testing purpose only
-        addOuterCircle(rect: rect)
+//        addOuterCircle(rect: rect)
         
         //DialRect: in which dial needs to be drawn and keeping margin from the outer bound of the view.
         let dialRect = rect.insetBy(dx: margin * 1.5, dy: margin * 1.5)
-        addOuterCircle(rect: dialRect)
+//        addOuterCircle(rect: dialRect)
         //created mark tick from Line using UIBezierPath
         addOuterLines(rect: dialRect, context: context)
         //created mark tick from rect using UIBezierPath
         //        addGuageLines(context: context, rect: dialRect)
+        addarc(rect: dialRect)
     }
     
 }
@@ -99,7 +131,6 @@ extension CircularView {
         let textBounds = name.size(withAttributes: attributes)
         let transform = context?.ctm
         let radians = atan2(transform!.b, transform!.a)
-        print("radian: \(radians) abs: \(abs(radians)) index: \(name) angle : \(angle)")
         if abs(radians) > pi / 2 && abs(radians) < 3 / 2 * pi {
             context?.saveGState()
             context?.rotate(by: pi)
@@ -132,8 +163,8 @@ extension CircularView {
                 lineLength = markLength * 1.6
             }
             
-            let percent = CGFloat(CGFloat(index )/CGFloat(numberOfOuterLines))
-            let angle = (percent * 2 * pi)
+            let angle = anglePerIndex * CGFloat(index) + startingAngle
+            print ("Percentage of index,percent, pi, degree \(index), \(angle), \(angle * 57.2958 ), \(anglePerIndex * 57.2958)")
             
             let path = UIBezierPath()
             path.lineWidth = lineWidth
@@ -160,6 +191,15 @@ extension CircularView {
             context?.restoreGState()
             drawText(name: "\(index)", centerPoint: centerPoint, radius:radius  + lineLength / 2 + textMargin, angle:angle)
         }
+    }
+    
+    func addarc(rect: CGRect) {
+        let diameter = min(rect.width, rect.height)
+        let centerPoint = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        let arc = UIBezierPath(arcCenter: centerPoint, radius: diameter / 2, startAngle: startingAngle, endAngle: stopAngle, clockwise: true)
+        arc.lineWidth = markWidth
+        UIColor.black.setStroke()
+        arc.stroke()
     }
 }
 
