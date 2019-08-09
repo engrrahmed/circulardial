@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwR-mk-bpq" customClass="CircularView" customModule="TemperatureDial" customModuleProvider="target">
-                                <rect key="frame" x="35" y="628" width="359" height="234"/>
+                                <rect key="frame" x="35" y="628" width="176" height="178"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.5568627451" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Nt4-6g-G92"/>
