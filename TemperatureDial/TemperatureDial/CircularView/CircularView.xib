@@ -12,9 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" restorationIdentifier="CircularView" id="iN0-l3-epB" customClass="CircularView" customModule="TemperatureDial" customModuleProvider="target">
+        <view contentMode="scaleAspectFit" restorationIdentifier="CircularView" id="iN0-l3-epB" customClass="CircularView" customModule="TemperatureDial" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Circle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5V-Ry-bu8">
                     <rect key="frame" x="165.5" y="323.5" width="44" height="20.5"/>
@@ -28,8 +28,9 @@
                 <constraint firstItem="T5V-Ry-bu8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="83M-Cc-3e3"/>
                 <constraint firstItem="T5V-Ry-bu8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="VoB-hX-rUL"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="478" y="105"/>
+            <point key="canvasLocation" x="-196" y="105"/>
         </view>
     </objects>
 </document>
