@@ -179,15 +179,16 @@ extension CircularView {
             path.apply(transform)
             path.lineCapStyle = .round
             //            UIColor.red.setStroke()
-            let colorIndex = index % 12
-            UIColor.black.setStroke()
+//            let colorIndex = index % 12
 //            colors[colorIndex].setStroke()
             
+            UIColor.black.setStroke()
             context?.saveGState()
             //            context?.translateBy(x: centerPoint.x - lineLength  / 2 * cos(angle) * 0 , y: centerPoint.y - lineLength / 2 * sin(angle)  * 0)
             context?.translateBy(x: centerPoint.x, y: centerPoint.y)
             context?.rotate(by: angle)
-            path.stroke()
+            let markAlphaValue:CGFloat = (index < markIndexOfLightColor) ?  alphaValueForLightMark : 1.0
+            path.stroke(with: .xor, alpha: markAlphaValue)
             context?.restoreGState()
             drawText(name: "\(index)", centerPoint: centerPoint, radius:radius  + lineLength / 2 + textMargin, angle:angle)
         }
@@ -200,49 +201,5 @@ extension CircularView {
         arc.lineWidth = markWidth
         UIColor.black.setStroke()
         arc.stroke()
-    }
-}
-
-// MARK:- Create mark tick using rect
-extension CircularView  {
-    func addGuageLines(context : CGContext?, rect: CGRect) {
-        let diameter = min(rect.width, rect.height)
-        let centerPoint = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-        context?.saveGState()
-        for index in 0..<numberOfOuterLines {
-            
-            let percent = CGFloat(CGFloat(index)/CGFloat(numberOfOuterLines))
-            let angle = (percent * 2 * pi)
-            let colorIndex = index % 12
-            let radius = diameter / 2
-            
-            print ("Percentage of index,percent, pi, degree \(index), \(percent), \(angle), \(angle * 57.2958 ), \(colorIndex)")
-            //            colors[colorIndex].setFill()
-            UIColor.black.setFill()
-            var lineWidth = markWidth
-            if index == baseValueMarkIndex ||  index == currentValueMarkIndex{
-                lineWidth  = markWidth * 2
-            }
-            let lineLength = (index == currentValueMarkIndex) ? markLength * 1.5 : markLength
-            let markYpos = (index == currentValueMarkIndex) ? centerPoint.y -  markLength / 4 : centerPoint.y
-            let guageTickPath = UIBezierPath(rect: CGRect(x:        centerPoint.x,
-                                                          y:        markYpos,
-                                                          width:    lineLength,
-                                                          height:   lineWidth
-            ))
-            let transform = CGAffineTransform(translationX: radius  - lineLength / 2,y: radius * 0 )
-            guageTickPath.apply(transform)
-            context?.saveGState()
-            context?.translateBy(x: centerPoint.x, y: centerPoint.y)
-            context?.rotate(by: angle)
-            context?.translateBy(x: -centerPoint.x, y: -centerPoint.y)
-            let markAlphaValue:CGFloat = (index < markIndexOfLightColor) ?  alphaValueForLightMark : 1.0
-            guageTickPath.fill(with: .xor, alpha: markAlphaValue)
-            
-            context?.restoreGState()
-            
-            drawText(name: "\(index)", centerPoint: centerPoint, radius: radius  + lineLength / 2 + textMargin, angle:angle)
-        }
-        context?.restoreGState()
     }
 }
