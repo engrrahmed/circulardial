@@ -18,19 +18,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mwR-mk-bpq" customClass="CircularView" customModule="TemperatureDial" customModuleProvider="target">
-                                <rect key="frame" x="35" y="628" width="176" height="178"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwR-mk-bpq" customClass="CircularView" customModule="TemperatureDial" customModuleProvider="target">
+                                <rect key="frame" x="8" y="554" width="398" height="300"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="0.5568627451" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Nt4-6g-G92"/>
-                                    <constraint firstAttribute="width" constant="300" id="ZeU-sN-gxr"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0EZ-GP-rk6" customClass="CircularView" customModule="TemperatureDial" customModuleProvider="target">
+                                <rect key="frame" x="8" y="52" width="398" height="482"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mwR-mk-bpq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Frf-mg-Hjr"/>
+                            <constraint firstItem="0EZ-GP-rk6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="SkB-j6-LXl"/>
                             <constraint firstItem="mwR-mk-bpq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WKy-zt-dZ5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mwR-mk-bpq" secondAttribute="bottom" constant="67" id="arv-5n-NZK"/>
+                            <constraint firstItem="0EZ-GP-rk6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="WbA-cb-h8D"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mwR-mk-bpq" secondAttribute="bottom" constant="8" id="arv-5n-NZK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mwR-mk-bpq" secondAttribute="trailing" constant="8" id="jTW-Bg-eUJ"/>
+                            <constraint firstAttribute="trailing" secondItem="0EZ-GP-rk6" secondAttribute="trailing" constant="8" id="lI8-qF-C8W"/>
+                            <constraint firstItem="0EZ-GP-rk6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oEl-bz-SeC"/>
+                            <constraint firstItem="mwR-mk-bpq" firstAttribute="top" secondItem="0EZ-GP-rk6" secondAttribute="bottom" constant="20" id="uNE-mr-84R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,21 +48,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="105.80357142857143"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="yFU-v8-zzG">
-            <objects>
-                <viewController id="Gz3-HG-3zL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="B4A-11-rMf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="m9k-o4-JAS"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zgd-NJ-e2e" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="943" y="99"/>
         </scene>
     </scenes>
 </document>

@@ -18,12 +18,10 @@ class ViewController: UIViewController {
             let width = view.bounds.size.width - 30
             let height = view.bounds.size.height - width / 4
             
-            circularView.frame = CGRect(x: 15, y: width / 4, width: width, height: width)
+            circularView.frame = CGRect(x: 15, y: width / 4, width: width, height: height)
             circularView.backgroundColor  = .yellow
-             self.view.addSubview(circularView)
+//             self.view.addSubview(circularView)
         }
-//        let circularView = RectangleView(frame: CGRect(x: -100, y: -12, width: 100, height: 24))
-//          self.view.addSubview(circularView)
     }
 
 }
